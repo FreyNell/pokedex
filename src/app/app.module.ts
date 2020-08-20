@@ -3,13 +3,17 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PokemonComponent } from './components/pokemon/pokemon.component';
+import { LoginComponent } from './components/login/login.component';
+import { PokemonesComponent } from './components/pokemones/pokemones.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   // Componentes van aquí
   declarations: [
     AppComponent,
-    PokemonComponent
+    LoginComponent,
+    PokemonesComponent,
+    RegisterComponent
   ],
   // Módulos van aquí
   imports: [

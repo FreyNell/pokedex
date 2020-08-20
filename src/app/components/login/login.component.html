@@ -1,0 +1,15 @@
+<div class="container">
+    <header>INICIAR SESIÓN</header>
+    <div class="container">
+        <div class="campo">
+            <label>Nombre de Usuario: </label><input type="text" (keyup)="setName($event)" />
+        </div>
+        <div class="campo">
+            <label>Contraseña: </label><input type="password" (keyup)="setPassword($event)" />
+        </div>
+    </div>
+    <div class="buttons">
+        <button (click)="logIn()">INICIAR SESION</button>
+        <button (click)="signUp()">REGISTRARSE</button>
+    </div>
+</div>

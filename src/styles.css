@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+    background-color:#e6e6e6;
+}
+
+header{
+    text-align: center;
+    background-color: red ;
+    padding: 5px 0px 5px 0px;
+}
+.container{
+    margin: 5px;
+    background-color: white;
+    display: block;
+    overflow: hidden;
+}
+
+.campo{
+    display: flex;
+    margin: 5px 0px 5px 0px;
+    flex-direction: column;
+}

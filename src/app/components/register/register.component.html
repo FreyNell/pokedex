@@ -1,0 +1,23 @@
+<div class="container">
+    <header>REGISTRO</header>
+    <div class="container">
+        <label>{{errorMsg}}</label>
+        <div class="campo">
+            <label>Nombre completo: </label><input type="text" (keyup)="setName($event)"/>
+        </div>
+        <div class="campo">
+            <label>Correo electrónico: </label><input type="text" (keyup)="setEmail($event)" />
+        </div>
+        <div class="campo">
+            <label>Contraseña: </label><input type="password" (keyup)="setPassword($event)" />
+        </div>
+        <div class="campo">
+            <label>Confirmar contraseña: </label>
+            <input type="text" (keyup)="setConfirmPassword($event)"/>
+        </div>
+    </div>
+    <div class="buttons">
+        <button (click)="signUp()">REGISTRARSE</button>
+        <button (click)="cancel()">CANCELAR</button>
+    </div>
+</div>
