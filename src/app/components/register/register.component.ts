@@ -9,19 +9,19 @@ import { Router } from '@angular/router';
 
 export class RegisterComponent implements OnInit {
   name: string;
-  fullName:string;
+  fullName: string;
   email: string;
   password: string;
   confirmpassword: string;
-  successName:boolean;
+  successName: boolean;
   successfullPass: boolean;
   successfullEmail: boolean;
-  successfullName:boolean;
+  successfullName: boolean;
   errorMsg: string;
 
   constructor(private router: Router) {
     this.name = "";
-    this.fullName="";
+    this.fullName = "";
     this.email = "";
     this.password = "";
     this.confirmpassword = "";
@@ -37,7 +37,7 @@ export class RegisterComponent implements OnInit {
 
   signUp(): void {
 
-    let newUser = { name: this.name,fullName:this.fullName, email: this.email, password: this.password };
+    let newUser = { name: this.name, fullName: this.fullName, email: this.email, password: this.password };
     let users: object[];
     if (localStorage.getItem("users")) {
       users = JSON.parse(localStorage.getItem("users"));
@@ -49,15 +49,15 @@ export class RegisterComponent implements OnInit {
     } else {
       users = [];
     }
-    if(this.successfullName && this.successName && this.successfullEmail && this.successfullPass){
+    if (this.successfullName && this.successName && this.successfullEmail && this.successfullPass) {
       users.push(newUser);
       localStorage.setItem("users", JSON.stringify(users));
       this.router.navigateByUrl("/login");
     } else {
-      this.errorMsg = "Algunos campos no se llenaron correctamente"
+      this.errorMsg += "\nAlgunos campos no se llenaron correctamente"
     }
-    
-    
+
+
   }
 
   cancel(): void {
@@ -84,9 +84,26 @@ export class RegisterComponent implements OnInit {
 
   setPassword(event: KeyboardEvent): void {
     this.password = (event.target as HTMLInputElement).value;
-    let re = new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
-    if (this.confirmpassword === this.password && re.test(this.password)) {
-      this.successfullPass = true;
+    let listRe = [
+      { re: "(?=.*[a-z])", err: "La contraseña no tiene una letra minuscula." },
+      { re: "(?=.*[A-Z]{2,})", err: "La contraseña no posee dos letras mayúsculas" },
+      { re: "(?=.*[0-9])", err: "Debe haber almenos un número." },
+      { re: "(?=.*[!@#$%^&*])", err: "Debe contener un caracter especial." },
+      { re: "(?=.{8,})", err: "Debe superar los ocho caracteres" },
+    ];
+    if (this.confirmpassword === this.password) {
+      let count = 0;
+      listRe.forEach(r => {
+        let re = RegExp(r.re);
+        if (re.test(this.password)) {
+          count += 1;
+        } else {
+          this.errorMsg += "\n" + r.err;
+        }
+      });
+      if (count === listRe.length) {
+        this.successfullPass = true;
+      }
     } else {
       this.successfullPass = false;
     }

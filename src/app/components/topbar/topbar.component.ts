@@ -8,10 +8,11 @@ import { Router } from '@angular/router';
 })
 export class TopbarComponent implements OnInit, DoCheck {
   user:string;
-
+  pokedetail:string;
 
   constructor(private router: Router) {
     this.user="";
+    this.pokedetail="";
    }
 
   ngOnInit(): void {
@@ -27,12 +28,21 @@ export class TopbarComponent implements OnInit, DoCheck {
     if(sessionStorage.getItem("userAuth")){
       this.user = sessionStorage.getItem("userAuth");
     }
+    if(sessionStorage.getItem("poke")){
+      this.pokedetail = sessionStorage.getItem("poke");
+    }
   }
 
   logOut(){
     sessionStorage.clear();
     this.user="";
     this.router.navigateByUrl("/login");
+  }
+
+  backPokedex(){
+    this.router.navigateByUrl("/");
+    sessionStorage.removeItem("poke");
+    this.pokedetail="";
   }
 
 }

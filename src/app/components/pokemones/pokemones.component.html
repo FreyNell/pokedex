@@ -3,8 +3,8 @@
     <button>Buscar</button>
 </div>
 <div class="pokemon-container">
-    <div class="pokemon-card" *ngFor="let pokemon of visibles;let i = index">
-        <h5 class="pokemon-name">{{pokemon.name}}</h5>
+    <div class="pokemon-card" [attr.data-namePoke]="pokemon.name" [attr.data-idPoke]="pokemon.id" *ngFor="let pokemon of visibles;let i = index" (click)="goDetail($event)">
+        <h5 class="pokemon-name" >{{pokemon.name}}</h5>
         <img src={{pokemon.img}} width="100" height="100" />
         <div class="pokemon-atribute-container">
             <span class="pokemon-atribute" *ngFor="let tipo of this.pokemon.type">

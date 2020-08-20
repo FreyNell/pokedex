@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Pokemon } from "../../models/pokemon";
 
 @Component({
@@ -11,14 +12,14 @@ export class PokemonesComponent implements OnInit {
   visibles:Pokemon[];
   search:string;
 
-  constructor() { 
+  constructor(private router: Router) { 
     this.pokemones = [];
     this.visibles =[];
     fetch("https://pokeapi.co/api/v2/pokemon/")
     .then(rta => rta.json())
     .then(json => {
       json.results.forEach((element) => {
-        this.pokemones.push(new Pokemon(element));
+        this.pokemones.push(new Pokemon(element.name));
       });
       this.visibles = this.pokemones;
     });
@@ -31,6 +32,12 @@ export class PokemonesComponent implements OnInit {
     this.search = (event.target as HTMLInputElement).value;
     let re = new RegExp(this.search,'i');
     this.visibles = this.pokemones.filter(poke => re.test(poke.name));
+  }
+
+  goDetail(e){
+    if(e.target.dataset.namepoke){
+      this.router.navigateByUrl("/detail/"+e.target.dataset.namepoke);
+    }
   }
 
 }

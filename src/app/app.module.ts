@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PokemonesComponent } from './components/pokemones/pokemones.component';
 import { RegisterComponent } from './components/register/register.component';
 import { TopbarComponent } from './components/topbar/topbar.component';
+import { PokedetailComponent } from './components/pokedetail/pokedetail.component';
 
 @NgModule({
   // Componentes van aquí
@@ -15,7 +16,8 @@ import { TopbarComponent } from './components/topbar/topbar.component';
     LoginComponent,
     PokemonesComponent,
     RegisterComponent,
-    TopbarComponent
+    TopbarComponent,
+    PokedetailComponent
   ],
   // Módulos van aquí
   imports: [

@@ -14,7 +14,6 @@
     justify-content: center; 
     margin: 15px;
     box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 4%;
     transition: all .2s ease-in-out;
 }
 
@@ -33,7 +32,6 @@
     margin:5px;
     background-color: #e6e6e6;
     padding: 5px 10px 5px 10px ;
-    border-radius: 4%;
 }
 
 .pokemon-search{
