@@ -1,6 +1,6 @@
 <div class="container">
     <header>INICIAR SESIÓN</header>
-    <span [ngClass]="{'redError' : err}">{{msgErr}}</span>
+    <div [ngClass]="{'errorMsg' : err}">{{msgErr}}</div>
     <div class="container">
         <div class="campo">
             <label>Nombre de usuario: </label><input type="text" (keyup)="setName($event)" />

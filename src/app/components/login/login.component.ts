@@ -46,7 +46,13 @@ export class LoginComponent implements OnInit {
       this.router.navigateByUrl("/");
     } else {
       this.err = true;
-      this.msgErr = "Credenciales incorrectas";
+      if(this.user && this.password){
+        this.msgErr = "Credenciales incorrectas";
+      } else {
+        this.err = false;
+        this.msgErr = "";
+      }
+      
     }
   }
 

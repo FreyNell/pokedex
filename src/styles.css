@@ -68,3 +68,10 @@ button:active {
     transform: scale(0.99);
 }
 
+.errorMsg{
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    background-color: var(--terciary);
+    text-align: justify;
+}

@@ -1,7 +1,7 @@
 <div class="container">
     <header>REGISTRO</header>
     <div class="container">
-        <label>{{errorMsg}}</label>
+        <div [ngClass]="{'errorMsg' : errorMsg}">{{errorMsg}}</div>
         <div class="campo">
             <label>Nombre de usuario: </label><input type="text"  [ngClass]="{'redError' : !(successName)}" (keyup)="setName($event)"/>
         </div>

@@ -53,6 +53,7 @@ export class RegisterComponent implements OnInit {
       users.push(newUser);
       localStorage.setItem("users", JSON.stringify(users));
       this.router.navigateByUrl("/login");
+      alert("Registrado");
     } else {
       this.errorMsg += "\nAlgunos campos no se llenaron correctamente"
     }
@@ -103,6 +104,7 @@ export class RegisterComponent implements OnInit {
       });
       if (count === listRe.length) {
         this.successfullPass = true;
+        this.errorMsg="";
       }
     } else {
       this.successfullPass = false;
