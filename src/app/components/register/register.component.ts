@@ -49,9 +49,15 @@ export class RegisterComponent implements OnInit {
     } else {
       users = [];
     }
-    users.push(newUser);
-    localStorage.setItem("users", JSON.stringify(users));
-    this.router.navigateByUrl("/login");
+    if(this.successfullName && this.successName && this.successfullEmail && this.successfullPass){
+      users.push(newUser);
+      localStorage.setItem("users", JSON.stringify(users));
+      this.router.navigateByUrl("/login");
+    } else {
+      this.errorMsg = "Algunos campos no se llenaron correctamente"
+    }
+    
+    
   }
 
   cancel(): void {
@@ -78,7 +84,8 @@ export class RegisterComponent implements OnInit {
 
   setPassword(event: KeyboardEvent): void {
     this.password = (event.target as HTMLInputElement).value;
-    if (this.confirmpassword === this.password) {
+    let re = new RegExp("(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})");
+    if (this.confirmpassword === this.password && re.test(this.password)) {
       this.successfullPass = true;
     } else {
       this.successfullPass = false;

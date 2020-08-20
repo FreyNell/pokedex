@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+
 
 /**
  *  selector: es donde se pinta el elemento.
@@ -16,11 +16,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'pokedex';
 
-  constructor(private router: Router){
-    if(localStorage.getItem("userAuth")){
-      this.router.navigateByUrl("/");
-    } else {
-      this.router.navigateByUrl("/login");
-    }
+  constructor(){    
   }
+  
 }

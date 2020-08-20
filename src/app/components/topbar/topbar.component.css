@@ -1,0 +1,14 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    padding: 10px 10px 10px 10px;
+    background-color: var(--primary);
+}
+#title {
+    flex-grow: 1;
+}
+nav > h3 {
+   color:var(--quaternary);
+   margin-right: 10px;
+}
