@@ -13,6 +13,7 @@ header{
     background-color: white;
     display: block;
     overflow: hidden;
+    max-width: 400px;
 }
 
 .campo{

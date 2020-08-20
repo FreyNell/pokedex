@@ -6,21 +6,27 @@ import { Router } from '@angular/router';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
 export class RegisterComponent implements OnInit {
   name: string;
+  fullName:string;
   email: string;
   password: string;
   confirmpassword: string;
+  successName:boolean;
   successfullPass: boolean;
   successfullEmail: boolean;
+  successfullName:boolean;
   errorMsg: string;
-
 
   constructor(private router: Router) {
     this.name = "";
+    this.fullName="";
     this.email = "";
     this.password = "";
     this.confirmpassword = "";
+    this.successName = false;
+    this.successfullName = false;
     this.successfullPass = false;
     this.successfullEmail = false;
     this.errorMsg = "";
@@ -30,26 +36,22 @@ export class RegisterComponent implements OnInit {
   }
 
   signUp(): void {
-    try {
-      let newUser = { name: this.name, email: this.email, password: this.password };
-      let users: object[];
-      if (localStorage.getItem("users")) {
-        users = JSON.parse(localStorage.getItem("users"));
-        users.forEach(user => {
-          if (user === newUser) {
-            throw "Usuario ya existe!";
-          }
-        });
-      } else {
-        users = [];
-      }
-      users.push(newUser);
-      localStorage.setItem("users", JSON.stringify(users));
-      this.router.navigateByUrl("/");
-      
-    } catch (err) {
-      alert(err);
+
+    let newUser = { name: this.name,fullName:this.fullName, email: this.email, password: this.password };
+    let users: object[];
+    if (localStorage.getItem("users")) {
+      users = JSON.parse(localStorage.getItem("users"));
+      users.forEach(user => {
+        if (user === newUser) {
+          alert("Usuario ya existe!");
+        }
+      });
+    } else {
+      users = [];
     }
+    users.push(newUser);
+    localStorage.setItem("users", JSON.stringify(users));
+    this.router.navigateByUrl("/login");
   }
 
   cancel(): void {
@@ -58,11 +60,19 @@ export class RegisterComponent implements OnInit {
 
   setName(event: KeyboardEvent): void {
     this.name = (event.target as HTMLInputElement).value;
+    let re = new RegExp("^[A-Za-z0-9]+$");
+    this.successName = re.test(this.name);
+  }
+
+  setFullName(event: KeyboardEvent): void {
+    this.fullName = (event.target as HTMLInputElement).value;
+    let re = new RegExp("^[A-Za-z]+[ ]*[A-Za-z]+$");
+    this.successfullName = re.test(this.fullName);
   }
 
   setEmail(event: KeyboardEvent): void {
     this.email = (event.target as HTMLInputElement).value;
-    let re = new RegExp("");
+    let re = new RegExp("^[A-Za-z0-9]+[\.\_\-]{0,1}[A-Za-z0-9]+@[A-Za-z0-9]+[\.\_\-]{0,1}[A-Za-z0-9]+\.[A-Za-z]+$");
     this.successfullEmail = re.test(this.email);
   }
 
