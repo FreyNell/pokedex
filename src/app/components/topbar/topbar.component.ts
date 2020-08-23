@@ -17,10 +17,10 @@ export class TopbarComponent implements OnInit, DoCheck {
 
   ngOnInit(): void {
     if(sessionStorage.getItem("userAuth")){
-      this.router.navigateByUrl("");
+      this.router.navigate(['/'],{ skipLocationChange: true });
       this.user = sessionStorage.getItem("userAuth");
     } else {
-      this.router.navigateByUrl("login");
+      this.router.navigate(['/login'],{ skipLocationChange: true });
     }
   }
 
@@ -36,11 +36,11 @@ export class TopbarComponent implements OnInit, DoCheck {
   logOut(){
     sessionStorage.clear();
     this.user="";
-    this.router.navigateByUrl("login");
+    this.router.navigate(['/login'],{ skipLocationChange: true });
   }
 
   backPokedex(){
-    this.router.navigateByUrl("");
+    this.router.navigate(['/'],{ skipLocationChange: true });
     sessionStorage.removeItem("poke");
     this.pokedetail="";
   }

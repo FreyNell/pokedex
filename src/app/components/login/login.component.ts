@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
 
   validSession() {
     if (sessionStorage.getItem("userAuth")) {
-      this.router.navigateByUrl("");
+      this.router.navigate(['/'],{ skipLocationChange: true });
     } else {
       this.err = true;
       if (this.email && this.password) {
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
   }
 
   signUp(): void {
-    this.router.navigateByUrl("signup");
+    this.router.navigate(['/signup'],{ skipLocationChange: true });
   }
 
   setEmail(event: KeyboardEvent): void {

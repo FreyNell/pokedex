@@ -55,13 +55,13 @@ export class RegisterComponent implements OnInit {
     if (this.successfullName && this.successfullEmail && this.successfullPass) {
       users.push(newUser);
       localStorage.setItem("users", JSON.stringify(users));
-      this.router.navigateByUrl("login");
+      this.router.navigate(['/login'],{ skipLocationChange: true });
       alert("Registrado");
     }
   }
 
   cancel(): void {
-    this.router.navigateByUrl("login");
+    this.router.navigate(['/login'],{ skipLocationChange: true });
   }
 
   setFullName(event: KeyboardEvent): void {

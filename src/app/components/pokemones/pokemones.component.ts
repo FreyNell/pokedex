@@ -34,7 +34,7 @@ export class PokemonesComponent implements OnInit {
 
   goDetail(e){
     if(e.target.dataset.namepoke){
-      this.router.navigateByUrl("detail/"+e.target.dataset.namepoke);
+      this.router.navigate(['/detail/'+e.target.dataset.namepoke],{ skipLocationChange: true });
     }
   }
 
