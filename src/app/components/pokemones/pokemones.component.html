@@ -1,11 +1,12 @@
 <div class="pokemon-search">
-    <input type="text" (keyup)="namePoke($event)"/>
+    <input type="text" class="input-search" placeholder="Buscar..." (keyup)="namePoke($event)"/>
     <button>Buscar</button>
 </div>
 <div class="pokemon-container">
     <div class="pokemon-card" [attr.data-namePoke]="pokemon.name" [attr.data-idPoke]="pokemon.id" *ngFor="let pokemon of visibles;let i = index" (click)="goDetail($event)">
         <h5 class="pokemon-name" >{{pokemon.name}}</h5>
         <img src={{pokemon.img}} width="100" height="100" />
+        <div class="pokemon-attribute-divisor"></div>
         <div class="pokemon-atribute-container">
             <span class="pokemon-atribute" *ngFor="let tipo of this.pokemon.type">
                 {{tipo}}

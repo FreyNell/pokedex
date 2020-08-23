@@ -1,16 +1,21 @@
-<div class="container">
-    <header>INICIAR SESIÓN</header>
-    <div [ngClass]="{'errorMsg' : err}">{{msgErr}}</div>
-    <div class="container">
-        <div class="campo">
-            <label>Nombre de usuario: </label><input type="text" (keyup)="setName($event)" />
-        </div>
-        <div class="campo">
-            <label>Contraseña: </label><input type="password" (keyup)="setPassword($event)" />
+<div class="login">
+    <div class="login-triangle-left"></div>
+    <div class="login-container">
+        <div>
+            <header>INICIAR SESIÓN</header>
+            <div [ngClass]="{'err-center':err}">
+                <div [ngClass]="{'errorMsg' : err}">{{msgErr}}</div>
+            </div>
+            <div class="login-content">
+                <input type="text" class="input-email" placeholder="Nombre de usuario" (keyup)="setEmail($event)" />
+                <input type="password" class="input-password" placeholder="Contraseña " (keyup)="setPassword($event)" />
+            </div>
+            <div class="buttons">
+                <button (click)="logIn()">Iniciar sesion</button>
+                <br />
+                <a (click)="signUp()">Registrarse</a>
+            </div>
         </div>
     </div>
-    <div class="buttons">
-        <button (click)="logIn()">INICIAR SESION</button>
-        <button (click)="signUp()">REGISTRARSE</button>
-    </div>
+    <div class="login-triangle-right"></div>
 </div>

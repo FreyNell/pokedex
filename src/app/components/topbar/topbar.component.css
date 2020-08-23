@@ -1,14 +1,22 @@
 nav {
     display: flex;
     flex-direction: row;
+    vertical-align: center;
     height: 50px;
     padding: 10px 10px 10px 10px;
-    background-color: var(--primary);
+    background-color: rgba(var(--primary),0.1);
 }
 #title {
+    font-size: 32px;
     flex-grow: 1;
 }
 nav > h3 {
    color:var(--quaternary);
    margin-right: 10px;
+}
+
+.logo {
+    margin-top:35px ;
+    margin-right:10px ;
+    margin-left:10px ;
 }

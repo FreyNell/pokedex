@@ -19,8 +19,3 @@ export class Pokemon {
     }); 
   }
 }
-
-interface Poke {
-  name:string,
-  url:string
-}

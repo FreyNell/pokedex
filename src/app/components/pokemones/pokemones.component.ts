@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import  { PokemonesService } from "../../services/pokemones.service";
 import { Pokemon } from "../../models/pokemon";
 
 @Component({
@@ -8,24 +9,21 @@ import { Pokemon } from "../../models/pokemon";
   styleUrls: ['./pokemones.component.css']
 })
 export class PokemonesComponent implements OnInit {
+
   pokemones:Pokemon[];
   visibles:Pokemon[];
   search:string;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router, private pokeService: PokemonesService) { 
     this.pokemones = [];
     this.visibles =[];
-    fetch("https://pokeapi.co/api/v2/pokemon/")
-    .then(rta => rta.json())
-    .then(json => {
-      json.results.forEach((element) => {
-        this.pokemones.push(new Pokemon(element.name));
-      });
-      this.visibles = this.pokemones;
-    });
   }
   
   ngOnInit(): void {
+    this.pokeService.getPokes().subscribe(poke => {
+      this.pokemones = poke.results.map(e => new Pokemon(e.name));
+      this.visibles = this.pokemones;
+    });
   }
 
   namePoke(event: KeyboardEvent): void {
@@ -36,7 +34,7 @@ export class PokemonesComponent implements OnInit {
 
   goDetail(e){
     if(e.target.dataset.namepoke){
-      this.router.navigateByUrl("/detail/"+e.target.dataset.namepoke);
+      this.router.navigateByUrl("detail/"+e.target.dataset.namepoke);
     }
   }
 

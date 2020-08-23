@@ -1,3 +1,74 @@
-.redError{
-    border: 1px solid red;
+.register {
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.register-container{
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.3);
+    height:300px;
+    width: 300px;
+}
+
+.register-triangle-left{
+    float: left;
+    border-right: 50px solid  rgba(255,255,255,0.3);
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid transparent;
+}
+   
+.register-triangle-right{    
+    float: left;
+    border-left: 50px solid rgba(255,255,255,0.3);
+    border-top: 150px solid transparent;
+    border-bottom: 150px solid transparent;
+}
+
+header {
+    text-align: center;
+    color: var(--quaternary);
+    margin-bottom: 15px;
+}
+
+.register-content {
+    text-align: center;
+}
+
+.input-user {
+    background-image: url(../../../assets/account_box-24px.svg);
+}
+.input-email {
+    background-image: url(../../../assets/alternate_email-24px.svg);
+}
+.input-password {
+    background-image: url(../../../assets/lock-black-24dp.svg);
+}
+
+.buttons{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.buttons > a {
+    cursor: pointer;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: gray;
+}
+
+.err-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;   
+}
+
+.redError {
+    border:1px solid;
+    border-color: red;
 }

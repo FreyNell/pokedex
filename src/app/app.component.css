@@ -1,6 +1,6 @@
-#contain-middle{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height:  calc(100%-50px);
+#app{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
 }

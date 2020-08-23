@@ -1,26 +1,27 @@
-<div class="container">
-    <header>REGISTRO</header>
-    <div class="container">
-        <div [ngClass]="{'errorMsg' : errorMsg}">{{errorMsg}}</div>
-        <div class="campo">
-            <label>Nombre de usuario: </label><input type="text"  [ngClass]="{'redError' : !(successName)}" (keyup)="setName($event)"/>
-        </div>
-        <div class="campo">
-            <label>Nombre completo: </label><input type="text"  [ngClass]="{'redError' : !(successfullName)}" (keyup)="setFullName($event)"/>
-        </div>
-        <div class="campo" >
-            <label>Correo electrónico: </label><input type="text" [ngClass]="{'redError' : !(successfullEmail)}" (keyup)="setEmail($event)" />
-        </div>
-        <div class="campo">
-            <label>Contraseña: </label><input type="password" [ngClass]="{'redError' : !(successfullPass)}" (keyup)="setPassword($event)" />
-        </div>
-        <div class="campo">
-            <label>Confirmar contraseña: </label>
-            <input type="password"  [ngClass]="{'redError' : !(successfullPass)}" (keyup)="setConfirmPassword($event)"/>
+<div class="register">
+    <div class="register-triangle-left"></div>
+    <div class="register-container">
+        <div>
+            <header>REGISTRO</header>
+            <div class="register-content">
+                <div [ngClass]="{'err-center':err}">
+                    <div [ngClass]="{'errorMsg' : err}">{{errorMsg}}</div>
+                </div>
+                <input type="text" placeholder="Nombre completo"  class="input-user"  [ngClass]="{'redError' : !(successfullName)}"
+                    (keyup)="setFullName($event)" />
+                <input type="text" placeholder="Correo electrónico"  class="input-email" [ngClass]="{'redError' : !(successfullEmail)}"
+                    (keyup)="setEmail($event)" />
+                <input type="password" placeholder="Contraseña" class="input-password" [ngClass]="{'redError' : !(successfullPass)}"
+                    (keyup)="setPassword($event)" />
+                <input type="password" placeholder="Confirmar contraseña" class="input-password" [ngClass]="{'redError' : !(successfullPass)}"
+                    (keyup)="setConfirmPassword($event)" />
+            </div>
+            <div class="buttons">
+                <button (click)="signUp()">Registrarse</button>
+                <br />
+                <a (click)="cancel()">Cancelar</a>
+            </div>
         </div>
     </div>
-    <div class="buttons">
-        <button (click)="signUp()">REGISTRARSE</button>
-        <button (click)="cancel()">CANCELAR</button>
-    </div>
+    <div class="register-triangle-right"></div>
 </div>
