@@ -7,3 +7,5 @@ The project is an application that allow to the pokemon trainers query informati
 Public API: (https://pokeapi.co/)
 
 Trello: (https://trello.com/b/rWR0IWlb/pokedex)
+
+ng build --prod=true --outputPath=docs --baseHref=/pokedex/
