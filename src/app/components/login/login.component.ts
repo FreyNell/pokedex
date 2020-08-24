@@ -70,10 +70,16 @@ export class LoginComponent implements OnInit {
     } else {
       this.msgErr = "";
     }
+    if (event.keyCode === 13){
+      this.logIn();
+    }
   }
 
   setPassword(event: KeyboardEvent): void {
     this.password = (event.target as HTMLInputElement).value;
+    if (event.keyCode === 13){
+      this.logIn();
+    }
   }
 
 }

@@ -98,6 +98,8 @@ export class RegisterComponent implements OnInit {
       { re: "(?=.{8,})", err: "Debe superar los ocho caracteres" },
     ];
     if (this.confirmpassword === this.password) {
+      this.errorMsg="";
+      this.err = false;
       let count = 0;
       listRe.forEach(r => {
         let re = RegExp(r.re);
