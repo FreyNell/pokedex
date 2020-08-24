@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import validEmail from "../../transversal/validEmail";
-import "../../../assets/logo.png";
 
 @Component({
   selector: 'app-login',

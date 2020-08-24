@@ -8,13 +8,9 @@ import { Router } from '@angular/router';
 })
 export class TopbarComponent implements OnInit, DoCheck {
   user:string;
-  pokedetail:string;
-  logoUrl:string;
 
   constructor(private router: Router) {
     this.user="";
-    this.pokedetail="";
-    this.logoUrl= "../../../assets/logo.png";
    }
 
   ngOnInit(): void {
@@ -29,9 +25,6 @@ export class TopbarComponent implements OnInit, DoCheck {
   ngDoCheck(){
     if(sessionStorage.getItem("userAuth")){
       this.user = sessionStorage.getItem("userAuth");
-    }
-    if(sessionStorage.getItem("poke")){
-      this.pokedetail = sessionStorage.getItem("poke");
     }
   }
 
