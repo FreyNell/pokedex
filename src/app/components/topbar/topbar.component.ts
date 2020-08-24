@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 export class TopbarComponent implements OnInit, DoCheck {
   user:string;
   pokedetail:string;
+  logoUrl:string;
 
   constructor(private router: Router) {
     this.user="";
     this.pokedetail="";
+    this.logoUrl= "../../../assets/logo.png";
    }
 
   ngOnInit(): void {

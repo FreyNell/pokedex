@@ -1,5 +1,5 @@
 <nav>
-    <img class="logo" src="../../../assets/logo.png" width="32" height="32"/><h3 id="title">Pokedex</h3><h3>{{user}}</h3>
+    <img class="logo" [src]="logoUrl" width="32" height="32"/><h3 id="title">Pokedex</h3><h3>{{user}}</h3>
     <button *ngIf="user !== ''" (click)="logOut()">Cerrar Sesión</button>
 </nav>
 <button  *ngIf="pokedetail !== ''" (click)="backPokedex()">Volver a Pokedex</button>
