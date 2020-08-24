@@ -10,7 +10,7 @@ import {Pokemon} from "../../models/pokemon";
 export class PokedetailComponent implements OnInit {
   namepoke:string;
   pokemon:Pokemon;
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute,private router:Router) {
     sessionStorage.setItem("poke",this.namepoke);
   }
 
@@ -18,4 +18,10 @@ export class PokedetailComponent implements OnInit {
     this.namepoke = this.route.snapshot.paramMap.get("namepoke");
     this.pokemon = new Pokemon(this.namepoke);
   }
+
+  backPokedex(){
+    this.router.navigate(['/'],{ skipLocationChange: true });
+    sessionStorage.removeItem("poke");
+  }
+
 }

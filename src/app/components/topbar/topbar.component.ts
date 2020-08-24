@@ -40,11 +40,4 @@ export class TopbarComponent implements OnInit, DoCheck {
     this.user="";
     this.router.navigate(['/login'],{ skipLocationChange: true });
   }
-
-  backPokedex(){
-    this.router.navigate(['/'],{ skipLocationChange: true });
-    sessionStorage.removeItem("poke");
-    this.pokedetail="";
-  }
-
 }

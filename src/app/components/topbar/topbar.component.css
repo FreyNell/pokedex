@@ -1,3 +1,4 @@
+
 nav {
     display: flex;
     flex-direction: row;
@@ -6,17 +7,52 @@ nav {
     padding: 10px 10px 10px 10px;
     background-color: rgba(var(--primary),0.1);
 }
-#title {
-    font-size: 32px;
-    flex-grow: 1;
-}
+
 nav > h3 {
    color:var(--quaternary);
    margin-right: 10px;
+   text-align: right;
+   font-size: 18px;
+   margin-top: 0;
+}
+#title {
+    font-size: 32px;
+    flex-grow: 1;
+    text-align: left;
+}
+#user{
+    margin-top: 10px;
 }
 
 .logo {
-    margin-top:35px ;
+    margin-top:0px ;
     margin-right:10px ;
     margin-left:10px ;
+}
+
+@media(max-width:375px){
+    #user {
+        font-size: 14px;
+        width: 100px;
+        margin-top: 5px;
+    }
+    #logout{
+        margin-top: 0;
+        height: 32px;
+    }
+    #title {
+        margin-left:10px ;
+        font-size: 18px;
+    }
+    nav > h3 {
+       color:var(--quaternary);
+       margin-right: 10px;
+       margin-top: 0;
+    }
+    
+    .logo {
+        margin-top:0px ;
+        margin-right:0px ;
+        margin-left:0px ;
+    }
 }
