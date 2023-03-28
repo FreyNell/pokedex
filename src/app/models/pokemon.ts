@@ -12,8 +12,8 @@ export class Pokemon {
     .then(rta=>rta.json()).then(rta => {
       this.name = rta.name;
       this.type = rta.types.map(type => type.type.name );
-      this.img = rta.sprites.back_default;
-      console.log(img);
+      this.img = rta.sprites.front_default;
+      console.log(this.img);
       this.skills = rta.abilities.map(abi => abi.ability.name);
       this.height = rta.height;
       this.weight = rta.weight
