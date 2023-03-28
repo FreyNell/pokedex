@@ -12,7 +12,7 @@ export class Pokemon {
     .then(rta=>rta.json()).then(rta => {
       this.name = rta.name;
       this.type = rta.types.map(type => type.type.name );
-      this.img = "https://pokeres.bastionbot.org/images/pokemon/"+rta.id+".png";
+      this.img = rta.sprites.back_default;
       this.skills = rta.abilities.map(abi => abi.ability.name);
       this.height = rta.height;
       this.weight = rta.weight
